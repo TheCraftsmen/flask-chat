@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=windows-1252" http-equiv="content-type">
+    <title>index</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("div").hide();
+            $("#hide").click(function(){
+                $("div").hide();
+            });
+            $("#show").click(function(){
+                $("div").show();
+            });
+        });
+    </script>
+  </head>
+  <body>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <h3>Mensages:</h3>
+    {% for chat in chats %}
+        <div>
+        <strong>User:</strong> {{ chat.user }} <br>
+        <strong>Message:</strong> {{ chat.message }} <br>
+        </div>
+    {% endfor %}
+    <form method="POST" action=""> <input name="user" type="text"><br>
+      <textarea name="message"></textarea><br>
+      <input value="Enviar" type="submit"> </form>
+  </body>
+</html>
